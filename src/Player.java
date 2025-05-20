@@ -9,15 +9,15 @@ public class Player extends Sprite {
     private double dy;
 
     public Player() {
-        super(PLAYER_IMAGE_PATH, 0, 0, PLAYER_WIDTH, PLAYER_HEIGHT);
+        super(PADDLE_IMAGE_PATH, 0, 0, PADDLE_WIDTH, PADDLE_HEIGHT);
     }
 
     @Override
     public void tick() {
         pos.translate((int)dx, (int)dy);
 
-        pos.x = Math.clamp(pos.x, 0, BOARD_WIDTH - PLAYER_WIDTH);
-        pos.y = Math.clamp(pos.y, 0, BOARD_HEIGHT - PLAYER_HEIGHT);
+        pos.x = Math.clamp(pos.x, 0, BOARD_WIDTH - PADDLE_WIDTH);
+        pos.y = Math.clamp(pos.y, 0, BOARD_HEIGHT - PADDLE_HEIGHT);
     }
 
     public void handleActiveKeys(Set<Integer> activeKeyCodes) {
@@ -25,16 +25,16 @@ public class Player extends Sprite {
         dy = 0;
 
         if (activeKeyCodes.contains(KeyEvent.VK_UP)) {
-            dy -= PLAYER_SPEED;
+            dy -= PADDLE_SPEED;
         }
         if (activeKeyCodes.contains(KeyEvent.VK_RIGHT)) {
-            dx += PLAYER_SPEED;
+            dx += PADDLE_SPEED;
         }
         if (activeKeyCodes.contains(KeyEvent.VK_DOWN)) {
-            dy += PLAYER_SPEED;
+            dy += PADDLE_SPEED;
         }
         if (activeKeyCodes.contains(KeyEvent.VK_LEFT)) {
-            dx -= PLAYER_SPEED;
+            dx -= PADDLE_SPEED;
         }
 
         normalizeDeltas();
