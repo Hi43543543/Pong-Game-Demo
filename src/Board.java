@@ -16,7 +16,6 @@ public class Board extends JPanel implements ActionListener, KeyListener {
     private final Ball ball;
     private final Paddle leftPaddle;
     private final Paddle rightPaddle;
-    private final Player player;
     private final List<Sprite> sprites;
     private final Set<Integer> activeKeyCodes;
 
@@ -24,10 +23,9 @@ public class Board extends JPanel implements ActionListener, KeyListener {
         setPreferredSize(new Dimension(BOARD_WIDTH, BOARD_HEIGHT));
         setBackground(Color.GRAY);
 
-        player = new Player();
         ball = new Ball();
         leftPaddle = new Paddle(KeyEvent.VK_W, KeyEvent.VK_S, 15);
-        rightPaddle = new Paddle(KeyEvent.VK_UP, KeyEvent.VK_DOWN, BOARD_WIDTH - PADDLE_WIDTH);
+        rightPaddle = new Paddle(KeyEvent.VK_UP, KeyEvent.VK_DOWN, BOARD_WIDTH - PADDLE_WIDTH - 15);
         sprites = new ArrayList<>(List.of(ball, leftPaddle, rightPaddle));
 
         activeKeyCodes = new HashSet<>();

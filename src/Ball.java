@@ -26,9 +26,8 @@ public class Ball extends Sprite {
         }
         if (r1 == 2 || r1 == 3) {
             vx = -BALL_SPEED;
-
-            rally = 0;
         }
+        rally = 0;
     }
 
     public int getRally() {
